@@ -1,0 +1,8 @@
+springmvc运行流程:
+	1),客户端点击连接会发送http://localhost:8080/1.SpringMVC_helloworld/hello 请求
+	2),请求来到tomcat服务器;
+	3),Springmvc的前端控制器收到所有的请求
+	4),来看请求地址和@RequestMapping标注的哪个方法处理
+	5),SpringMVC 执行了该方法,最后用视图解析器拼串方法返回值得到一个页面地址
+	6)前端控制器转发到该页面.(hello转发了success.jsp)
+spring-aop-4.0.0.RELEASE.jar 该jar包可以支持使用@Autowired注解	

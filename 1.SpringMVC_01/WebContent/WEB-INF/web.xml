@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>1.SpringMVC_01</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>springDispatcherServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:springmvc.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>springDispatcherServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+ <!-- DefaultServlet 是tomcat内部编写处理静态页面的 并且DefaultServlet的 url-pattern设置为/.
+ 	如果我们的前端控制器url-pattern也设置为/.则相当于覆盖了 DefaultServlet
+ 	结果是处理不了静态的资源(jsp,servlet除外的资源).
+ 	如果设置为/*，则拦截所有请求包括所有的jsp
+ 	如果设置为/，则不拦截jsp,拦截静态页面。
+  -->
+	<!-- 解决乱码的filter -->
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<!-- 设置post方式提及的乱码 request.setCharacterEncoding("UTF-8), -->
+		<init-param>
+				<param-name>encoding</param-name>
+				<param-value>UTF-8</param-value>
+		</init-param>
+		<!-- 设置响应编码  response.setContentType("text/html;charset=utf-8") -->
+			<init-param>
+				<param-name>forceEncoding</param-name>
+				<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+	<filter-name>CharacterEncodingFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+	</filter-mapping>
+</web-app>
