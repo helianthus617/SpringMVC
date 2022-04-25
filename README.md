@@ -1,5 +1,5 @@
 # Experiment of SpringMVC
-*该实验出自尚硅谷雷丰阳老师SSM视频课程,可结合老师视频使用,也可单独使用* .<br/>
+
 &nbsp; &nbsp;  实验环境:(spring-tool-suite-3.7.3.RELEASE-e4.5.2-win32   eclipse-jee-kepler-SR2-win32)<br/>
 &nbsp; &nbsp;  Spring版本:spring-framework-4.0.0.RELEASE-dist.<br/>
 &nbsp; &nbsp;  实验中用到的源码解析流程https://helianthus617.github.io/SpringMVC/.<br/>
